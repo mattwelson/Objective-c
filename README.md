@@ -66,4 +66,26 @@ When the solution runs, the output pane will pop up from the bottom of the xcode
 
 ###Things to note:
 - @autoreleasepool refers to automatic reference counting (ARC), this is the way that the foundation framework manages memory. Anything that is executed in its scope will take care of itself, with one exception.
-- The @ infront of a string makes it an NSString, the foundation framework version of a string. [It's class reference can be found here](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSString_Class/Reference/)
+- The @ infront of a string makes it an NSString, the foundation framework version of a string. [It's class reference can be found here](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSString_Class/Reference/NSString.html)
+- NSLog is what printed out the date (also a line break) but you could use printf, as objective-c extends c. Printf does not work with NSStrings, so you would need to remove the at sign, and append a new line character. 
+```objective-c
+  printf("Hello, World\n");
+```
+
+##Expanding the program
+Let's start writing some code of our own. The hello world example was stolen by Apple, so let's write a program that will create an array of different greetings, then traverse over it to print each one. 
+1. I just deleted the old NSLog line so I had nothing between the @autoreleasepool flags
+2. The collection we will use is called an [NSArray](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSArray_Class/NSArray.html) and there are at least 3 ways to initialise one. 
+  1. The general way
+```objective-c
+    NSArray *greetings = [[NSArray alloc] init];
+```
+  2. A convenience constructor, lots of objects have these
+```objective-c
+    NSArray *greetings = [NSArray arrayWithObjects:@"Hello", @"Bonjour", @"Guten tag"];
+```
+  3. The literal way
+```objective-c
+    NSArray *greetings = @[@"Hello", @"Bonjour", @"Guten tag"];
+```
+Here the square brackets represent the array literal (like quotation marks represent string literals) and not method calls.
