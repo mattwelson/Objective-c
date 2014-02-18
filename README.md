@@ -76,16 +76,16 @@ When the solution runs, the output pane will pop up from the bottom of the xcode
 Let's start writing some code of our own. The hello world example was stolen by Apple, so let's write a program that will create an array of different greetings, then traverse over it to print each one. 
 1. I just deleted the old NSLog line so I had nothing between the @autoreleasepool flags
 2. The collection we will use is called an [NSArray](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSArray_Class/NSArray.html) and there are at least 3 ways to initialise one. 
-  1. The general way
-```objective-c
-    NSArray *greetings = [[NSArray alloc] init];
-```
-  2. A convenience constructor, lots of objects have these
-```objective-c
-    NSArray *greetings = [NSArray arrayWithObjects:@"Hello", @"Bonjour", @"Guten tag"];
-```
-  3. The literal way
-```objective-c
-    NSArray *greetings = @[@"Hello", @"Bonjour", @"Guten tag"];
-```
+  1. The general way    
+    ```objective-c
+        NSArray *greetings = [[NSArray alloc] init];
+    ```
+  2. A convenience constructor, lots of objects have these    
+    ```objective-c
+        NSArray *greetings = [NSArray arrayWithObjects:@"Hello", @"Bonjour", @"Guten tag"];
+    ```
+  3. The literal way    
+    ```objective-c
+        NSArray *greetings = @[@"Hello", @"Bonjour", @"Guten tag"];
+    ```    
 Here the square brackets represent the array literal (like quotation marks represent string literals) and not method calls.
