@@ -5,7 +5,7 @@ This is a quick write up on how to start learning objective-c.
 ## Language features
 Objective-c is a weird looking language. It's an object oriented declarative language that uses dynamic typing and dynamic binding. Here's a list of a few features that may take some getting used to. 
 ### Methods
-Methods can also be referred to as message passing. Instead of invoking a method on another object, you are asking it nicely to please do it and let you know what happens. This is similar to a language called Small Talk (this won't be news to you if you've met Richard O'Keefe)
+Methods can also be referred to as message passing. Instead of invoking a method on another object, you are asking it nicely to please do it and let you know what happens. This is similar to a language called Smalltalk (this won't be news to you if you've met Richard O'Keefe). This is were dynamic binding comes into play, the compiler doesn't resolve what methods will be called, instead this is worked out at runtime. In practice this is similar to overriding methods in Java or other languages.
 #### Declaration
 The following examples are methods that belong to the [NSArray class](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSArray_Class/NSArray.html)
 ##### A method declaration with no parameters:
@@ -19,20 +19,38 @@ The id in brackets is the return type and firstObject is the method name. This w
 ```objective-c
 - (id)objectAtIndex:(NSUInteger)index
 ```
-A colon indicates that a parameter is to follow, of type NSUInteger (an unsigned long) with the parameter name index. Simple. Wait for the next one.
+A colon indicates that a parameter is to follow, of type NSUInteger (an unsigned long) with the parameter name index. Parameters can objects, structs, blocks of code, method signatures (called selectors) or primitive types.
 ##### A method with more than one parameter:
 ```objective-c
 - (NSUInteger)indexOfObject:(id)anObject inRange:(NSRange)range
 ```
-
+Instead of the usual comma separated list of parameters, objective-c uses a much longer style. Methods instead use a space, a phrase and then a colon to seperate each parameter. Methods cannot be overloaded, but there is no need to - you can just change part of the name to reflect the difference. This pattern will work well for up to 4 parameters, after which you should consider passing in a dictionary, or switching to other object oriented design patterns.
 
 #### Call
+For the following examples, assume a succesfully initialised NSArray object named array. Creative.
+##### No parameters
+```objective-c
+    NSString *string = [array firstObject];
+```
+This example accesses the first object in the array, and assigns it to a new NSString.  Like c the * just means it is a pointer to an object. 
+##### One parameter
+```objective-c
+    NSString *string = [array objectAtIndex:1];
+```
+This accesses the second object in the array, and assigns it to a new NSString named string.
+##### Lots of parameters
+```objective-c
+    int index = [array indexOfObject:
+```
 
 ## Variables
 ### Instance
 ### Macros
 ### Constants
 ### Properties
+
+## Instantiating
+If you call a method on null, you do not get a null pointer exception, instead the message is quietly ignored. This can be extremely frustrating. For example adding objects to an uninitialised array object will do absolutely nothing, meaning when you try to use them later nothing happens either.
 
 ## Misc
 ### Blocks
