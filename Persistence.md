@@ -1,12 +1,12 @@
 # Persistence
 Persitence isn't super important for learning a language but will become useful as you start trying more ambitious projects.
 
-Let's say you have three apps. One is a game and you want to store user settings, the second simply stores a highscore and the last one is a workout app that you want to store the user's workouts. The three options are:
+Let's say you have three apps. One is a game and you want to store user settings, the second simply stores a highscore and the last one is a workout app that you want to store the user's workouts. The three options are:  
 1. ## Text file
 This is probably the easiest way to start and simply works. For simple tasks like keeping tracking of a high score this is totally fine. Avoid this if you will be storing lots of information as reading and writing will be expensive operations. 
 *Best for:* Protoyping and for storing small amounts of information such as in the case of a high score.
 
-Information can be found here: LINK GOOD ARTICLE!
+Information can be found here: LINK GOOD ARTICLE!  
 2. ## Plist
 This is probably your best option for apps that are required to store a fair amount of information, especially if it should already be on the app when the user first opens it, like an app about dunedin attractions. A plist is a list of keys with associated values, in essence a dictionary which is actually what it turns into in your program. You can read and write to a plist easily, and it can have values set when the app ships. In an app I am working on we use a plist to store the rgb values of the top and bottom colour of gradients, for example.
 *Best for:* User settings and storing values that would otherwise bloat code.
