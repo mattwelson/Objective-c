@@ -3,7 +3,7 @@ Persitence isn't super important for learning a language but will become useful 
 
 Let's say you have three apps. One is a game and you want to store user settings, the second simply stores a highscore and the last one is a workout app that you want to store the user's workouts. The three options are:  
 
-1. ## Text file
+1. ## Text file    
 This is probably the easiest way to start and simply works. For simple tasks like keeping tracking of a high score this is totally fine. Avoid this if you will be storing lots of information as reading and writing will be expensive operations. 
 *Best for:* Protoyping and for storing small amounts of information such as in the case of a high score.
 
