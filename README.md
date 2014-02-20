@@ -5,7 +5,7 @@ This is a quick write up on how to start learning objective-c.
 ## Language features
 Objective-c is a weird looking language. It's an object oriented procedural language that uses dynamic typing and dynamic binding. Here's a list of a few features that may take some getting used to. 
 ### Methods
-Methods can also be referred to as message passing. Instead of invoking a method on another object, you are asking it nicely to please do it and let you know what happens. This is similar to a language called Smalltalk (this won't be news to you if you've met Richard O'Keefe). This is were dynamic binding comes into play, the compiler doesn't resolve what methods will be called, instead this is worked out at runtime. In practice this is similar to overriding methods in Java or other languages.
+Methods can also be referred to as message passing. Methods are invoked in the form of ```objective-c [object method:parameter];```. Instead of invoking a method on another object, you are asking it nicely to please do it and let you know what happens. This is similar to a language called Smalltalk (this won't be news to you if you've met Richard O'Keefe). This is were dynamic binding comes into play, the compiler doesn't resolve what methods will be called, instead this is worked out at runtime. In practice this is similar to overriding methods in Java or other languages.
 #### Declaration
 The following examples are methods that belong to the [NSArray class](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSArray_Class/NSArray.html)
 ##### A method declaration with no parameters:
@@ -40,8 +40,9 @@ This example accesses the first object in the array, and assigns it to a new NSS
 This accesses the second object in the array, and assigns it to a new NSString named string.
 ##### Lots of parameters
 ```objective-c
-    int index = [array indexOfObject:
+    int index = [array indexOfObject:@"Hello" inRange:NSMakeRange(0, [array count]/2)];
 ```
+This will look for the object in only the first half of the array. From the documentation I know that it is calling the isEqual method on each object, so it's looking at deep equality rather than shallow. For the range parameter I am using a c style method, which returns a range struct. This can all happen as objective-c is built on top of c, any c code is valid objective-c code. As a parameter to the c method I am using the count method of the array to get its length. 
 
 ## Variables
 ### Instance
