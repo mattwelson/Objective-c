@@ -6,3 +6,6 @@ I decided to write this guide as I felt the learning curve for objective-c was a
 
 #Nic Robertson
 
+Graduated and got my bsc+pgdipsci in 2013. Built 3 apps that were released on the store, 1 is down because it didnt get renewed, and 2 are just client apps for things like timesheets and inhouse stuff (easier than getting an ad hoc development profile as well as an app store profile). Biggest one is due to be released in march of this year (so I need to fix all the bugs which is lame). At the moment I am pretty much a contract app builder and have loads of dev jobs in the pipeline.
+
+Decided to help out, because now I know objective c as well as the back of my hand. Trust me on this, it is a dead easy language. Once you get over the initial formatting stuff its just simple. If you need any help with understanding how to write view controllers or custom views or connect to databases or share to social media sites/email, I can help.
