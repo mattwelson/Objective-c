@@ -173,6 +173,7 @@ Every now and again you'll run into a struct. This is exactly the same as it is 
     }
 ```
     The dot m extension is where you place all the executable code, while public header files use a dot h extension, more on that later!
+    *Important note:* When programming with cocoa you will not touch the main method. Instead you'll be customising objects that the frame work will instantiate and call certain methods on. This will look quite different but other tutorials will cover this.
 6. Click the play arrow in the top left to build and run the solution, or press command + r
 When the solution runs, the output pane will pop up from the bottom of the xcode window. It will say the date and some other stuff on the same line as "Hello, World!", then an exit code of 0 - which we know means success from c.
 
@@ -200,9 +201,8 @@ Let's start writing some code of our own. The hello world example was stolen by 
 ```objective-c
         NSArray *greetings = @[@"Hello", @"Bonjour", @"Guten tag"];
 ```    
-Here the square brackets represent the array literal (like quotation marks represent string literals) and not method calls.
-
-
+    Here the square brackets represent the array literal (like quotation marks represent string literals) and not method calls.
+3. To iterate over our list and print each greeting you can use a foreach or a for loop (or a while loop if you're a maniac) as well as a few fancy enumerators.
 
 ##Recently added, don't know where to put
 ###Mutable vs Immutable
