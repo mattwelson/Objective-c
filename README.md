@@ -23,6 +23,7 @@ A colon indicates that a parameter is to follow, of type NSUInteger (an unsigned
 ##### A method with more than one parameter:
 ```objective-c
 - (NSUInteger)indexOfObject:(id)anObject inRange:(NSRange)range
+- (NSUInteger)indexOfObject:(id)anObject:(NSRange)range //equivalent to above. 'inRange' is optional text which is useful for a readability perspective
 ```
 Instead of the usual comma separated list of parameters, objective-c uses a much longer style. Methods instead use a space, a phrase and then a colon to seperate each parameter. Methods cannot be overloaded, but there is no need to - you can just change part of the name to reflect the difference. This pattern will work well for up to 4 parameters, after which you should consider passing in a dictionary, or switching to other object oriented design patterns.
 
@@ -64,7 +65,7 @@ Every now and again you'll run into a struct. This is exactly the same as it is 
 3. Set a project name (HelloWorld) and fill in the company identifier (Practice), set the type drop down to Foundation
 4. Save to a sensible place
 5. Embarrassingly, the template already says hello world. Switch to main.m to find it
-    ```objective-c
+```objective-c
     #import <Foundation/Foundation.h>
     
     int main(int argc, const char * argv[])
@@ -78,7 +79,7 @@ Every now and again you'll run into a struct. This is exactly the same as it is 
         }
         return 0;
     }
-    ```
+```
     The dot m extension is where you place all the executable code, while public header files use a dot h extension, more on that later!
 6. Click the play arrow in the top left to build and run the solution, or press command + r
 When the solution runs, the output pane will pop up from the bottom of the xcode window. It will say the date and some other stuff on the same line as "Hello, World!", then an exit code of 0 - which we know means success from c.
@@ -96,15 +97,49 @@ Let's start writing some code of our own. The hello world example was stolen by 
 1. I just deleted the old NSLog line so I had nothing between the @autoreleasepool flags
 2. The collection we will use is called an [NSArray](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSArray_Class/NSArray.html) and there are at least 3 ways to initialise one. 
   1. The general way    
-    ```objective-c
+```objective-c
         NSArray *greetings = [[NSArray alloc] init];
-    ```
+```
   2. A convenience constructor, lots of objects have these    
-    ```objective-c
+```objective-c
         NSArray *greetings = [NSArray arrayWithObjects:@"Hello", @"Bonjour", @"Guten tag"];
-    ```
+```
   3. The literal way    
-    ```objective-c
+```objective-c
         NSArray *greetings = @[@"Hello", @"Bonjour", @"Guten tag"];
-    ```    
+```    
 Here the square brackets represent the array literal (like quotation marks represent string literals) and not method calls.
+
+##Recently added, don't know where to put
+###Mutable vs Immutable
+Most objective-c objects are mutable by default, but there are some which have differently named mutable/immutable classes. Immutable objects are essentially read-only once they are initialised, while Mutable objects are editable after they are initialised. 
+    For example, suppose you initialise an array as in the above example:
+```objective-c
+NSArray *greetings = [NSArray arrayWithObjects:@"Hello", @"Bonjour", @"Guten tag"];
+```
+Then wanted to add an object or modify the index, you would need to create an entirely new NSArray to make the changes. However, by using an NSMutableArray it is as simple as:
+    
+```objective-c
+NSMutableArray *greetings = [NSMutableArray arrayWithObjects:@"Hello", @"Bonjour", @"Guten tag"];
+[greetings addObject:@"Konnichiwa"]; //append object to array
+[greetings insertObject:@"Nihao" atIndex:2]; //insert object at index 2
+```
+    
+If you wish to make an Immutable object from a Mutable object you can do this fairly easily
+    
+```objective-c
+NSArray *immutableGreetings = greetings; //make an immutable version of greetings array
+```
+    
+A list of the objects which have differently named mutable/immutable counterparts:
+```objective-c
+-NSMutableArray
+-NSMutableDictionary
+-NSMutableSet
+-NSMutableIndexSet
+-NSMutableCharacterSet
+-NSMutableData
+-NSMutableString
+-NSMutableAttributedString
+-NSMutableURLRequest
+```
