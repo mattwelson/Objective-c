@@ -1,6 +1,6 @@
 # Objective-c
 
-This is a quick write up on how to start learning objective-c. 
+This is a quick write up on how to start learning objective-c. There's lots of great guides for working with cocoa-touch which sideline the language as much as possible, this crash course should help you get your bearings and then point you towards a few great tutorials.
 
 ## Language features
 Objective-c is a weird looking language. It's an object oriented procedural language that uses dynamic typing and dynamic binding. Here's a list of a few features that may take some getting used to. 
@@ -190,7 +190,7 @@ Let's start writing some code of our own. The hello world example was stolen by 
 2. The collection we will use is called an [NSArray](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSArray_Class/NSArray.html) and there are at least 3 ways to initialise one. 
   1. The general way    
 ```objective-c
-        NSArray *greetings = [[NSArray alloc] init];
+        NSArray *greetings = [[NSArray alloc] initWithObjects:@"Hello", @"Bonjour", @"Guten tag"];
 ```
   2. A convenience constructor, lots of objects have these    
 ```objective-c
@@ -201,6 +201,8 @@ Let's start writing some code of our own. The hello world example was stolen by 
         NSArray *greetings = @[@"Hello", @"Bonjour", @"Guten tag"];
 ```    
 Here the square brackets represent the array literal (like quotation marks represent string literals) and not method calls.
+
+
 
 ##Recently added, don't know where to put
 ###Mutable vs Immutable
