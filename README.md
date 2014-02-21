@@ -5,7 +5,7 @@ This is a quick write up on how to start learning objective-c.
 ## Language features
 Objective-c is a weird looking language. It's an object oriented procedural language that uses dynamic typing and dynamic binding. Here's a list of a few features that may take some getting used to. 
 ### Methods
-Methods can also be referred to as message passing. Methods are invoked in the form of ```objective-c [object method:parameter];```. Instead of invoking a method on another object, you are asking it nicely to please do it and let you know what happens. This is similar to a language called Smalltalk (this won't be news to you if you've met Richard O'Keefe). This is were dynamic binding comes into play, the compiler doesn't resolve what methods will be called, instead this is worked out at runtime. In practice this is similar to overriding methods in Java or other languages.
+Methods can also be referred to as message passing. Methods are invoked in the form of ```[object method:parameter];```. Instead of invoking a method on another object, you are asking it nicely to please do it and let you know what happens. This is similar to a language called Smalltalk (this won't be news to you if you've met Richard O'Keefe). This is were dynamic binding comes into play, the compiler doesn't resolve what methods will be called, instead this is worked out at runtime. In practice this is similar to overriding methods in Java or other languages.
 #### Declaration
 The following examples are methods that belong to the [NSArray class](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSArray_Class/NSArray.html)
 ##### A method declaration with no parameters:
@@ -31,22 +31,114 @@ Instead of the usual comma separated list of parameters, objective-c uses a much
 For the following examples, assume a succesfully initialised NSArray object named array. Creative.
 ##### No parameters
 ```objective-c
-    NSString *string = [array firstObject];
+NSString *string = [array firstObject];
 ```
 This example accesses the first object in the array, and assigns it to a new NSString.  Like c the * just means it is a pointer to an object. 
 ##### One parameter
 ```objective-c
-    NSString *string = [array objectAtIndex:1];
+NSString *string = [array objectAtIndex:1];
 ```
 This accesses the second object in the array, and assigns it to a new NSString named string.
 ##### Lots of parameters
 ```objective-c
-    int index = [array indexOfObject:@"Hello" inRange:NSMakeRange(0, [array count]/2)];
+int index = [array indexOfObject:@"Hello" inRange:NSMakeRange(0, [array count]/2)];
 ```
 This will look for the object in only the first half of the array. From the documentation I know that it is calling the isEqual method on each object, so it's looking at deep equality rather than shallow. For the range parameter I am using a c style method, which returns a range struct. This can all happen as objective-c is built on top of c, any c code is valid objective-c code. As a parameter to the c method I am using the count method of the array to get its length. 
 
 ## Variables
+###Primitives
+Booleans can be bool or BOOL and can be assigned values of YES, NO, true, false. YES and NO and BOOL are effectively just macros that mean yes == true and no == false and BOOL == bool, so using any combinations of these makes no difference whatsoever. 
+```objective-c
+BOOL b; 
+bool b;
+b = YES;
+b = true;
+b = NO;
+b = false;
+```
+Ints are the same as every other language essentially. If you dont know how ints work by now, then it is amazing that you have made it to 3rd year.
+```objective-c
+int i = 7;
+```
+Doubles/floats - as above
+```objective-c
+double d = 3.1;
+float f = 4.0;
+[someObject someMethodThatTakesAFloatAsAnArgument:1.0f]; //The f suffix is commonly used to make sure a number is a float
+```
+Chars and unichars
+```objective-c
+char c = 'v';
+unichar c = 'k';
+```
+
 ### Instance
+Instance variables are objects that you need to initialise through a class constructor.
+In java this is done as follows:
+```java
+MyObject obj = new MyObject();
+```
+This is done in an entirely different way in objective-c and can take some getting used to. When an object is declared you must put a '*' symbol (pointer) to give the variable a pointer value. Generally to initialise an object you must allocate memory (dont worry) and call an initialisation method:
+```objective-c
+MyObject *obj; //declare object
+obj = [[MyObject alloc] init]; //initialise object
+MyObject *obj = [[MyObject alloc] init]; //declare and initialise object at once
+```
+The alloc and init methods are common across every subclass of NSObject (much like java's Object) so you are not required to write and manage memory yourself.
+A common thing to do is to write some custom init methods which provide different initialisations. 
+
+```objective-c
+
+-(id)init{
+    if(self = [super init]){
+        //custom init code
+    }
+}
+
+//custom init
+-(id)initWithSomeVariableSetToSomething:(int)var{
+    if(self = [super init]){
+        self.theVariableToSet = var
+    }
+}
+//call the above init method
+MyObject *obj = [[MyObject alloc] initWithSomeVariableSetToSomething:8];
+
+//example from one of my apps - loading and setting variables when unarchived
+- (id)initWithCoder:(NSCoder *)coder {
+    self = [self init];
+    self.title = [coder decodeObjectForKey:@"title"];
+    self.timeline = [coder decodeObjectForKey:@"timeline"];
+    self.length = [coder decodeDoubleForKey:@"length"];
+    self.colour = [coder decodeIntForKey:@"colour"];
+    return self;
+}
+//the above init will get called when the following is called (more on archiving later)
+MyObject *obj = [NSKeyedUnarchiver unarchiveObjectWithFile:filename];
+```
+If an object has a method with a + instead of - then you can call the method without needing to do the alloc and init
+```objective-c
+//return a String instance
++(id)initAString{
+    return @"A string";
+}
+//return a SomeObject instance (in AClass.m)
++(id)initSomeObject{
+    return [[SomeObject alloc] init];
+}
+//calling a class method to init an object
+NSString *s = [AClass initAString];
+SomeObject *o = [AClass initSomeObject];
+```
+One of the most common instance variables you will use will be NSString, the string type for Objective-c. NSString have a lot of class methods to choose from. And can be initialised in many ways.
+```objective-c
+NSString *s;
+s = @"A string";
+s = [NSString stringWithFormat:@"Insert an int %i and a float %f and another string %@", 1, 1.0f, @"Another String"];
+s = [NSString stringWithString:@"Another string"];
+NSLog(@"%@",s); //print s
+```
+
 ### Macros
 ### Constants
 ### Properties
@@ -143,3 +235,4 @@ A list of the objects which have differently named mutable/immutable counterpart
 -NSMutableAttributedString
 -NSMutableURLRequest
 ```
+
