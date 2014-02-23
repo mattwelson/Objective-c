@@ -140,6 +140,20 @@ NSLog(@"%@",s); //print s
 ```
 
 ### Macros
+Macros are very handy things, they are mostly used to make things easier on the programmer. 
+```objective-c
+//these helpful macros make colour creation a breeze
+#define RGBA(r,g,b,a)				[UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
+#define RGB(r,g,b)					RGBA(r, g, b, 1.0f)
+//Check what the device is
+#define IS_IPAD   (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+if(IS_IPAD){
+    //Do iPad code
+}else{
+    //You are on an non iPad device
+}
+```
+
 ### Constants
 ### Properties
 
