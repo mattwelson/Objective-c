@@ -190,19 +190,50 @@ Let's start writing some code of our own. The hello world example was stolen by 
 1. I just deleted the old NSLog line so I had nothing between the @autoreleasepool flags
 2. The collection we will use is called an [NSArray](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSArray_Class/NSArray.html) and there are at least 3 ways to initialise one. 
   1. The general way    
-```objective-c
+    ```objective-c
         NSArray *greetings = [[NSArray alloc] initWithObjects:@"Hello", @"Bonjour", @"Guten tag"];
-```
+    ```
   2. A convenience constructor, lots of objects have these    
-```objective-c
+    ```objective-c
         NSArray *greetings = [NSArray arrayWithObjects:@"Hello", @"Bonjour", @"Guten tag"];
-```
+    ```
   3. The literal way    
-```objective-c
+    ```objective-c
         NSArray *greetings = @[@"Hello", @"Bonjour", @"Guten tag"];
-```    
-    Here the square brackets represent the array literal (like quotation marks represent string literals) and not method calls.
+    ```
+Here the square brackets represent the array literal (like quotation marks represent string literals) and not method calls.
 3. To iterate over our list and print each greeting you can use a foreach or a for loop (or a while loop if you're a maniac) as well as a few fancy enumerators.
+    1. A handy old foreach loop, great when you don't care about index
+        ```objective-c
+        for (NSString *greeting in greetings)
+        {
+            NSLog(@"%@", greeting);
+        }
+        ```
+        or if you don't know or care about type you could use the generic type id
+        ```objective-c
+        for (id greeting in greetings)
+        {
+            NSLog(@"%@", greeting);
+        }
+        ```
+    2. A  familiar for loop. When written in full with each method that is being used being called explicitly:
+        ```objective-c
+        for (int i = 0; i < [greetings count]; i ++)
+        {
+            NSLog(@"%@", [greetings objectAtIndex:i]);
+        }
+        ```
+        In short hand:
+        ```objective-c
+        for (int i = 0; i < greetings.count; i ++)
+        {
+            NSLog(@"%@", greetings[i]);
+        }
+        ```
+        The short hand works because count is a property of an array, and the getter method for a property is called when you use dot notation. The objectAtIndex: method is called when we use the more conventional index notation, just for convenience. It's up to you which way you prefer, I'd suggest being consistent.
+
+**A note on printing: You may have noticed I'm using NSLog differently now. This is how it should be used, the first argument is a format string using %@ symbol to represent another string, which is given as an argument. This prevents a warning in XCode (so there's less noise for your warnings) and allows you to create complex outputs by including multiple arguments in one long string.**
 
 ##Recently added, don't know where to put
 ###Mutable vs Immutable
