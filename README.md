@@ -138,7 +138,11 @@ s = [NSString stringWithFormat:@"Insert an int %i and a float %f and another str
 s = [NSString stringWithString:@"Another string"];
 NSLog(@"%@",s); //print s
 ```
-If you call a method on null (say you forgot to initialise a variable), you do not get a null pointer exception, instead the message is quietly ignored. This can be extremely frustrating. For example adding objects to an uninitialised array object will do absolutely nothing, meaning when you try to use them later nothing happens either.
+#### nil vs NULL vs NSNull
+*[NSHipster's take.](http://nshipster.com/nil/)*
+In c NULL is the null pointer, when using objective-c you have a few more options. An uninitialised object is called nil, which is technically identical to NULL, but semantically different as it is only used for objective-c objects. NSNull is a singleton class (there can be only one) which can be used to represent nothing, but can go into collections, unlike nil or NULL. 
+If you call a method on nil(say you forgot to initialise a variable), you do not get a null pointer exception, instead the message is quietly ignored. This can be extremely frustrating. For example setting the text property of a button before it is initialised will do absolutely nothing. 
+*Take home message: Use nil for objective-c objects*
 
 ### Macros
 Macros are very handy things, they are mostly used to make things easier on the programmer. 
