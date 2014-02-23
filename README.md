@@ -141,21 +141,27 @@ NSLog(@"%@",s); //print s
 If you call a method on null (say you forgot to initialise a variable), you do not get a null pointer exception, instead the message is quietly ignored. This can be extremely frustrating. For example adding objects to an uninitialised array object will do absolutely nothing, meaning when you try to use them later nothing happens either.
 
 ### Macros
-
+Macros are very handy things, they are mostly used to make things easier on the programmer. 
+```objective-c
+//these helpful macros make colour creation a breeze
+#define RGBA(r,g,b,a)				[UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
+#define RGB(r,g,b)					RGBA(r, g, b, 1.0f)
+//Check what the device is
+#define IS_IPAD   (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+if(IS_IPAD){
+    //Do iPad code
+}else{
+    //You are on an non iPad device
+}
+```
 
 Macros come from the c language, before your code is compiled the macro you have defined is substituted into anywhere you've used it in code. A macro may or may not take parameters.
 
-Macros have a love/hate relationship with most developers. They're actually super easy to use but they're also super easy to introduce bugs with and they hide those bugs really well. I tend to use these as quick and nasty constants but this is largely discouraged.
-
-```objective-c
-#define FRIENDLYERROR @"This is all wrong, you idiot!"  // no semi colon! 
-#define FILE_RECORDING_TYPE @"m4a"                      // allows us to change file extensions in one place
-#define HEADERSIZE 22                                   // Abstracts ugly numbers from the code
-```
-[Arguments showing why I'm stupid](http://weblog.highorderbit.com/post/11656225202/appropriate-use-of-c-macros-for-objective-c-developers)
+Macros have a love/hate relationship with most developers. They're actually super easy to use but they're also super easy to introduce bugs with and they hide those bugs really well. I tend to use these as quick and nasty constants but this is largely discouraged. It is possible to use macros to hold global constants but this is widely discouraged, see constants below.
+[Arguments against macros.](http://weblog.highorderbit.com/post/11656225202/appropriate-use-of-c-macros-for-objective-c-developers)
 
 ### Constants
-Constants are little more fiddly to make global, but not by much. They aren't substituted into your code by the precompiler which gives them a few advantages and makes them a lot easier to debug.
+Constants are little more fiddly to make global, but not by much. They aren't substituted into your code by the precompiler which gives them a few advantages and makes them a lot easier to debug. 
 
 To make constants for a file:
 ```objective-c
