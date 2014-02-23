@@ -158,7 +158,7 @@ if(IS_IPAD){
 ### Properties
 
 ## Instantiating
-If you call a method on null, you do not get a null pointer exception, instead the message is quietly ignored. This can be extremely frustrating. For example adding objects to an uninitialised array object will do absolutely nothing, meaning when you try to use them later nothing happens either.
+If you call a method on null, you do not get a null pointer exception, instead the message is quietly ignored  (don't lie Matt you do, however if you call a method on nil, it will keep executing, NSNull [obj-c null object] will cause an exception). This can be extremely frustrating. For example adding objects to an uninitialised array object will do absolutely nothing, meaning when you try to use them later nothing happens either.
 
 ## Misc
 ### Blocks
