@@ -138,29 +138,71 @@ s = [NSString stringWithFormat:@"Insert an int %i and a float %f and another str
 s = [NSString stringWithString:@"Another string"];
 NSLog(@"%@",s); //print s
 ```
+If you call a method on null (say you forgot to initialise a variable), you do not get a null pointer exception, instead the message is quietly ignored. This can be extremely frustrating. For example adding objects to an uninitialised array object will do absolutely nothing, meaning when you try to use them later nothing happens either.
 
 ### Macros
-Macros are very handy things, they are mostly used to make things easier on the programmer. 
+
+
+Macros come from the c language, before your code is compiled the macro you have defined is substituted into anywhere you've used it in code. A macro may or may not take parameters.
+
+Macros have a love/hate relationship with most developers. They're actually super easy to use but they're also super easy to introduce bugs with and they hide those bugs really well. I tend to use these as quick and nasty constants but this is largely discouraged.
+
 ```objective-c
-//these helpful macros make colour creation a breeze
-#define RGBA(r,g,b,a)				[UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
-#define RGB(r,g,b)					RGBA(r, g, b, 1.0f)
-//Check what the device is
-#define IS_IPAD   (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-if(IS_IPAD){
-    //Do iPad code
-}else{
-    //You are on an non iPad device
-}
+#define FRIENDLYERROR @"This is all wrong, you idiot!"  // no semi colon! 
+#define FILE_RECORDING_TYPE @"m4a"                      // allows us to change file extensions in one place
+#define HEADERSIZE 22                                   // Abstracts ugly numbers from the code
 ```
+[Arguments showing why I'm stupid](http://weblog.highorderbit.com/post/11656225202/appropriate-use-of-c-macros-for-objective-c-developers)
 
 ### Constants
-### Properties
+Constants are little more fiddly to make global, but not by much. They aren't substituted into your code by the precompiler which gives them a few advantages and makes them a lot easier to debug.
 
-## Instantiating
-If you call a method on null, you do not get a null pointer exception, instead the message is quietly ignored  (don't lie Matt you do, however if you call a method on nil, it will keep executing, NSNull [obj-c null object] will cause an exception). This can be extremely frustrating. For example adding objects to an uninitialised array object will do absolutely nothing, meaning when you try to use them later nothing happens either.
+To make constants for a file:
+```objective-c
+NSString *const DefaultFont = @"Avenir-Book";
+```
+
+[Stack Overflow on global constants](http://stackoverflow.com/questions/538996/constants-in-objective-c)
+
+### Defining a New Class
+
+
+### Properties
+Properties are awesome. 
 
 ## Misc
+###Mutable vs Immutable
+Most objective-c objects are mutable by default, but there are some which have differently named mutable/immutable classes. Immutable objects are essentially read-only once they are initialised, while Mutable objects are editable after they are initialised. 
+    For example, suppose you initialise an array as in the above example:
+```objective-c
+NSArray *greetings = [NSArray arrayWithObjects:@"Hello", @"Bonjour", @"Guten tag"];
+```
+Then wanted to add an object or modify the index, you would need to create an entirely new NSArray to make the changes. However, by using an NSMutableArray it is as simple as:
+    
+```objective-c
+NSMutableArray *greetings = [NSMutableArray arrayWithObjects:@"Hello", @"Bonjour", @"Guten tag"];
+[greetings addObject:@"Konnichiwa"]; //append object to array
+[greetings insertObject:@"Nihao" atIndex:2]; //insert object at index 2
+```
+    
+If you wish to make an Immutable object from a Mutable object you can do this fairly easily
+    
+```objective-c
+NSArray *immutableGreetings = greetings; //make an immutable version of greetings array
+```
+    
+A list of the objects which have differently named mutable/immutable counterparts:
+```objective-c
+-NSMutableArray
+-NSMutableDictionary
+-NSMutableSet
+-NSMutableIndexSet
+-NSMutableCharacterSet
+-NSMutableData
+-NSMutableString
+-NSMutableAttributedString
+-NSMutableURLRequest
+```
 ### Blocks
 ### Structs
 Every now and again you'll run into a struct. This is exactly the same as it is c. They are used to represent things like the frame of anything that is rendered onto the screen, representing the x and y coordinates as well as the width and height.
@@ -247,39 +289,5 @@ Here the square brackets represent the array literal (like quotation marks repre
         ```
         The short hand works because count is a property of an array, and the getter method for a property is called when you use dot notation. The objectAtIndex: method is called when we use the more conventional index notation, just for convenience. It's up to you which way you prefer, I'd suggest being consistent.
 
-**A note on printing: You may have noticed I'm using NSLog differently now. This is how it should be used, the first argument is a format string using %@ symbol to represent another string, which is given as an argument. This prevents a warning in XCode (so there's less noise for your warnings) and allows you to create complex outputs by including multiple arguments in one long string.**
-
-##Recently added, don't know where to put
-###Mutable vs Immutable
-Most objective-c objects are mutable by default, but there are some which have differently named mutable/immutable classes. Immutable objects are essentially read-only once they are initialised, while Mutable objects are editable after they are initialised. 
-    For example, suppose you initialise an array as in the above example:
-```objective-c
-NSArray *greetings = [NSArray arrayWithObjects:@"Hello", @"Bonjour", @"Guten tag"];
-```
-Then wanted to add an object or modify the index, you would need to create an entirely new NSArray to make the changes. However, by using an NSMutableArray it is as simple as:
-    
-```objective-c
-NSMutableArray *greetings = [NSMutableArray arrayWithObjects:@"Hello", @"Bonjour", @"Guten tag"];
-[greetings addObject:@"Konnichiwa"]; //append object to array
-[greetings insertObject:@"Nihao" atIndex:2]; //insert object at index 2
-```
-    
-If you wish to make an Immutable object from a Mutable object you can do this fairly easily
-    
-```objective-c
-NSArray *immutableGreetings = greetings; //make an immutable version of greetings array
-```
-    
-A list of the objects which have differently named mutable/immutable counterparts:
-```objective-c
--NSMutableArray
--NSMutableDictionary
--NSMutableSet
--NSMutableIndexSet
--NSMutableCharacterSet
--NSMutableData
--NSMutableString
--NSMutableAttributedString
--NSMutableURLRequest
-```
+*A note on printing: You may have noticed I'm using NSLog differently now. This is how it should be used, the first argument is a format string using %@ symbol to represent another string, which is given as an argument. This prevents a warning in XCode (so there's less noise for your warnings) and allows you to create complex outputs by including multiple arguments in one long string.*
 
