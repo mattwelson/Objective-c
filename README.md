@@ -175,10 +175,17 @@ NSString *const DefaultFont = @"Avenir-Book";
 [Stack Overflow on global constants](http://stackoverflow.com/questions/538996/constants-in-objective-c)
 
 ### Defining a New Class
+Creating your own class is done by adding a new file through Xcode. Each class that's created must be a subclass of something, with NSObject being the root of all (or nearly all) classes.
+
 
 
 ### Properties
-Properties are awesome. 
+Properties are awesome. Properties live in the .h file for a class.
+
+#### Why aren't we mentioning synthesize?
+Synthesize is dead. If you see it in a tutorial, find another one. It's a keyword that was removed mid 2012, which you'll note isn't that recent. 
+
+What did it do? It used to create your properties getters and setters, which is now done automatically
 
 ## Misc
 ###Mutable vs Immutable
@@ -214,6 +221,10 @@ A list of the objects which have differently named mutable/immutable counterpart
 -NSMutableURLRequest
 ```
 ### Blocks
+[Blocks are hard.](http://code.tutsplus.com/tutorials/understanding-objective-c-blocks--mobile-14319)
+
+They are used for passing in *blocks* of code as an argument in several methods, you can use them to animate your views in an app, or to sort an array.
+
 ### Structs
 Every now and again you'll run into a struct. This is exactly the same as it is c. They are used to represent things like the frame of anything that is rendered onto the screen, representing the x and y coordinates as well as the width and height.
 
@@ -301,3 +312,16 @@ The short hand works because count is a property of an array, and the getter met
 
 *A note on printing: You may have noticed I'm using NSLog differently now. This is how it should be used, the first argument is a format string using %@ symbol to represent another string, which is given as an argument. This prevents a warning in XCode (so there's less noise for your warnings) and allows you to create complex outputs by including multiple arguments in one long string.*
 
+# The End.
+And now you're ready to start looking at using Cocoa-touch. To begin your journey we've listed a few guides below. Feel free to add anything you'd like to know as a comment or issue here on github, or contact us anyway you know how. 
+
+Remember building your first app should be fun, relatively simple and a great exercise in teamwork and software development. Don't forget to use source control, github offer 5 private repos to students for free.
+
+## Matt's links:
+1. Start with a basic app:
+2. Learn to do it from scratch: [Hello world take 2](http://www.appcoda.com/hello-world-app-using-xcode-5-xib/)
+3. Then a harder app: [Ray Wenderlich's bugs](http://www.raywenderlich.com/1797/ios-tutorial-how-to-create-a-simple-iphone-app-part-1)
+3.
+8. 
+9. Learn to love source control: 
+10. Check out a style guide or two: [NY Times style guide](https://github.com/NYTimes/objective-c-style-guide)
