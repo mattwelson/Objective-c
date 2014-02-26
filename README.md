@@ -3,7 +3,7 @@
 This is a quick write up on how to start learning objective-c. There's lots of great guides for working with cocoa-touch which sideline the language as much as possible, this crash course should help you get your bearings and then point you towards a few great tutorials.
 
 ## Language features
-Objective-c is a weird looking language. It's an object oriented procedural language that uses dynamic typing and dynamic binding. Here's a list of a few features that may take some getting used to. 
+Objective-c is a weird looking language. It's an [object oriented](http://en.wikipedia.org/wiki/Object-oriented_programming) [procedural language](http://en.wikipedia.org/wiki/Procedural_programming) that uses [message passing](http://en.wikipedia.org/wiki/Message_passing). Here's a list of a few features that may take some getting used to. 
 ### Methods
 Methods can also be referred to as message passing. Methods are invoked in the form of ```[object method:parameter];```. Instead of invoking a method on another object, you are asking it nicely to please do it and let you know what happens. This is similar to a language called Smalltalk (this won't be news to you if you've met Richard O'Keefe). This is were dynamic binding comes into play, the compiler doesn't resolve what methods will be called, instead this is worked out at runtime. In practice this is similar to overriding methods in Java or other languages.
 #### Declaration
