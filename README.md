@@ -321,7 +321,8 @@ Remember building your first app should be fun, relatively simple and a great ex
 1. Start with a basic app:
 2. Learn to do it from scratch: [Hello world take 2](http://www.appcoda.com/hello-world-app-using-xcode-5-xib/)
 3. Then a harder app: [Ray Wenderlich's bugs](http://www.raywenderlich.com/1797/ios-tutorial-how-to-create-a-simple-iphone-app-part-1)
-3.
-8. 
-9. Learn to love source control: 
-10. Check out a style guide or two: [NY Times style guide](https://github.com/NYTimes/objective-c-style-guide)
+4. 
+5. Learn to love stack overflow: [You'll spend a long time on here](http://stackoverflow.com/questions/tagged/cocoa-touch), remember - most answers are wrong.
+6. Learn to love source control: ... you're already on github, may as well look around.
+7. Check out a style guide or two: [NY Times style guide](https://github.com/NYTimes/objective-c-style-guide)
+8. Start learning pretty pro techniques: [Awesome weather app](http://www.raywenderlich.com/55384/ios-7-best-practices-part-1) - This app uses Cocoapods (community built modular code), [ReactiveCocoa](http://nshipster.com/reactivecocoa/) (allows classes to watch for changes in other classes with minimal coupling, see also: [KVO](http://nshipster.com/key-value-observing/)) and calls a web api. Fancy!
