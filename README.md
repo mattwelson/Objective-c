@@ -1,6 +1,6 @@
 # Objective-c
 
-This is a quick write up on how to start learning objective-c. There's lots of great guides for working with cocoa-touch which sideline the language as much as possible, this crash course should help you get your bearings and then point you towards a few great tutorials.
+This is a quick write up on how to start learning objective-c. There's lots of great guides for working with cocoa-touch which sideline the language as much as possible, this crash course should help you get your bearings and then point you towards a few great tutorials. Don't worry too much about taking everything in at once.
 
 ## Language features
 Objective-c is a weird looking language. It's an [object oriented](http://en.wikipedia.org/wiki/Object-oriented_programming) [procedural language](http://en.wikipedia.org/wiki/Procedural_programming) that uses [message passing](http://en.wikipedia.org/wiki/Message_passing). Here's a list of a few features that may take some getting used to. 
@@ -175,9 +175,66 @@ NSString *const DefaultFont = @"Avenir-Book";
 [Stack Overflow on global constants](http://stackoverflow.com/questions/538996/constants-in-objective-c)
 
 ### Defining a New Class
-Creating your own class is done by adding a new file through Xcode. Each class that's created must be a subclass of something, with NSObject being the root of all (or nearly all) classes.
+Creating your own class is done by adding a new file through Xcode. Each class that's created must be a subclass of something, with [NSObject](https://developer.apple.com/library/ios/documentation/Cocoa/Reference/Foundation/Classes/NSObject_Class/Reference/Reference.html) being the root of all (or nearly all) classes.
 
+#### Person.h
+To make a class that represents a person we could make the following interface which exposes any public properties and methods needed.
+```objective-c
+#import <Foundation/Foundation.h>
+@class Country; // means your h file can reference another class, but doesn't import it (good practice)
 
+@interface Person : NSObject // the class must inherit from something, NSObject in this case
+
+@property NSString *firstName;
+@property NSString *lastName;
+@propert Country *countryOfOrigin;
+
++ (instancetype) personWithFirstName:(NSString *)firstName lastName:(NSString *)lastName fromCountry:(Country *)country;
+    // an objective-c constructor, that intialises the object
+
+- (NSString *) fullName; // an instance method to return a person's full name as an NSString
+
+@end
+```
+
+#### Person.m
+Then use the following implementation to implement each of the public methods and any private ones that are needed
+```objective-c
+#import "Person.h" // the interface we're conforming to
+
+@implementation Person
+
+// a private init method
+- (instancetype) initWithFirstName:(NSString *)firstName lastName:(NSString *)lastName fromCountry:(Country *)country
+{
+    self = [super init]; 
+    if (self){ // checks memory was allocated properly
+        self.firstName = firstName;
+        self.lastName = lastName;
+        self.countryOfOrigin = country;
+    }
+    return self;
+}
+
++ (instancetype) personWithFirstName:(NSString *)firstName lastName:(NSString *)lastName fromCountry:(Country *)country
+{
+    return [[Person alloc] initWithFirstName:firstName lastName:lastName fromCountry:country];
+}
+
+- (NSString *) fullName
+{
+    return [NSString stringWithFormat:@"%@ %@", self.firstName, self.lastName];
+}
+
+// The following is overriding a method of NSObject so is public without needing to be in the h file, the 
+// equivalent of toString, but not used often
+- (NSString *) description
+{
+    return [NSString stringWithFormat:@"%@, %@ from %@", self.lastName, self.firstName, self.countryOfOrigin]; 
+}
+
+@end
+```
 
 ### Properties
 Properties are awesome. Properties live in the .h file for a class.
