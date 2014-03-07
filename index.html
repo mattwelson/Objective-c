@@ -1,35 +1,36 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Objective-c by mattwelson</title>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Objective-c : This is a quick write up on how to start learning objective-c" />
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="javascripts/scale.fix.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Objective-c</title>
   </head>
+
   <body>
-    <div class="wrapper">
-      <header>
-        <h1 class="header">Objective-c</h1>
-        <p class="header">This is a quick write up on how to start learning objective-c</p>
 
-        <ul>
-          <li class="download"><a class="buttons" href="https://github.com/mattwelson/Objective-c/zipball/master">Download ZIP</a></li>
-          <li class="download"><a class="buttons" href="https://github.com/mattwelson/Objective-c/tarball/master">Download TAR</a></li>
-          <li><a class="buttons github" href="https://github.com/mattwelson/Objective-c">View On GitHub</a></li>
-        </ul>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/mattwelson/Objective-c">View on GitHub</a>
 
-        <p class="header">This project is maintained by <a class="header name" href="https://github.com/mattwelson">mattwelson</a></p>
+          <h1 id="project_title">Objective-c</h1>
+          <h2 id="project_tagline">This is a quick write up on how to start learning objective-c</h2>
 
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/mattwelson/Objective-c/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/mattwelson/Objective-c/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
 
-      </header>
-      <section>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
         <h1>
 <a name="objective-c" class="anchor" href="#objective-c"><span class="octicon octicon-link"></span></a>Objective-c</h1>
 
@@ -53,7 +54,7 @@
 <h5>
 <a name="a-method-declaration-with-no-parameters" class="anchor" href="#a-method-declaration-with-no-parameters"><span class="octicon octicon-link"></span></a>A method declaration with no parameters:</h5>
 
-<div class="highlight highlight-objective-c"><pre><span class="k">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nf">firstObject</span>
+<div class="highlight highlight-objc"><pre><span class="k">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nf">firstObject</span>
 </pre></div>
 
 <p>The hyphen means it is an instance method (non-static for you Java nuts) where a plus would mean static.
@@ -63,7 +64,7 @@ The id in brackets is the return type and firstObject is the method name. This w
 <h5>
 <a name="a-method-declaration-with-one-parameter" class="anchor" href="#a-method-declaration-with-one-parameter"><span class="octicon octicon-link"></span></a>A method declaration with one parameter:</h5>
 
-<div class="highlight highlight-objective-c"><pre><span class="k">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nf">objectAtIndex:</span><span class="p">(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">index</span>
+<div class="highlight highlight-objc"><pre><span class="k">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nf">objectAtIndex:</span><span class="p">(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nv">index</span>
 </pre></div>
 
 <p>A colon indicates that a parameter is to follow, of type NSUInteger (an unsigned long) with the parameter name index. Parameters can objects, structs, blocks of code, method signatures (called selectors) or primitive types.</p>
@@ -71,7 +72,7 @@ The id in brackets is the return type and firstObject is the method name. This w
 <h5>
 <a name="a-method-with-more-than-one-parameter" class="anchor" href="#a-method-with-more-than-one-parameter"><span class="octicon octicon-link"></span></a>A method with more than one parameter:</h5>
 
-<div class="highlight highlight-objective-c"><pre><span class="k">-</span> <span class="p">(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nf">indexOfObject:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">anObject</span> <span class="nf">inRange:</span><span class="p">(</span><span class="n">NSRange</span><span class="p">)</span><span class="nv">range</span>
+<div class="highlight highlight-objc"><pre><span class="k">-</span> <span class="p">(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nf">indexOfObject:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">anObject</span> <span class="nf">inRange:</span><span class="p">(</span><span class="n">NSRange</span><span class="p">)</span><span class="nv">range</span>
 <span class="k">-</span> <span class="p">(</span><span class="n">NSUInteger</span><span class="p">)</span><span class="nf">indexOfObject:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">anObject</span><span class="o">:</span><span class="p">(</span><span class="n">NSRange</span><span class="p">)</span><span class="n">range</span> <span class="c1">//equivalent to above. 'inRange' is optional text which is useful for a readability perspective</span>
 </pre></div>
 
@@ -85,7 +86,7 @@ The id in brackets is the return type and firstObject is the method name. This w
 <h5>
 <a name="no-parameters" class="anchor" href="#no-parameters"><span class="octicon octicon-link"></span></a>No parameters</h5>
 
-<div class="highlight highlight-objective-c"><pre><span class="n">NSString</span> <span class="o">*</span><span class="n">string</span> <span class="o">=</span> <span class="p">[</span><span class="n">array</span> <span class="n">firstObject</span><span class="p">];</span>
+<div class="highlight highlight-objc"><pre><span class="n">NSString</span> <span class="o">*</span><span class="n">string</span> <span class="o">=</span> <span class="p">[</span><span class="n">array</span> <span class="n">firstObject</span><span class="p">];</span>
 </pre></div>
 
 <p>This example accesses the first object in the array, and assigns it to a new NSString.  Like c the * just means it is a pointer to an object. </p>
@@ -93,7 +94,7 @@ The id in brackets is the return type and firstObject is the method name. This w
 <h5>
 <a name="one-parameter" class="anchor" href="#one-parameter"><span class="octicon octicon-link"></span></a>One parameter</h5>
 
-<div class="highlight highlight-objective-c"><pre><span class="n">NSString</span> <span class="o">*</span><span class="n">string</span> <span class="o">=</span> <span class="p">[</span><span class="n">array</span> <span class="n">objectAtIndex</span><span class="o">:</span><span class="mi">1</span><span class="p">];</span>
+<div class="highlight highlight-objc"><pre><span class="n">NSString</span> <span class="o">*</span><span class="n">string</span> <span class="o">=</span> <span class="p">[</span><span class="n">array</span> <span class="n">objectAtIndex</span><span class="o">:</span><span class="mi">1</span><span class="p">];</span>
 </pre></div>
 
 <p>This accesses the second object in the array, and assigns it to a new NSString named string.</p>
@@ -101,7 +102,7 @@ The id in brackets is the return type and firstObject is the method name. This w
 <h5>
 <a name="lots-of-parameters" class="anchor" href="#lots-of-parameters"><span class="octicon octicon-link"></span></a>Lots of parameters</h5>
 
-<div class="highlight highlight-objective-c"><pre><span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="n">array</span> <span class="n">indexOfObject</span><span class="o">:</span><span class="s">@"Hello"</span> <span class="n">inRange</span><span class="o">:</span><span class="n">NSMakeRange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="n">array</span> <span class="n">count</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)];</span>
+<div class="highlight highlight-objc"><pre><span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="n">array</span> <span class="n">indexOfObject</span><span class="o">:</span><span class="s">@"Hello"</span> <span class="n">inRange</span><span class="o">:</span><span class="n">NSMakeRange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="n">array</span> <span class="n">count</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)];</span>
 </pre></div>
 
 <p>This will look for the object in only the first half of the array. From the documentation I know that it is calling the isEqual method on each object, so it's looking at deep equality rather than shallow. For the range parameter I am using a c style method, which returns a range struct. This can all happen as objective-c is built on top of c, any c code is valid objective-c code. As a parameter to the c method I am using the count method of the array to get its length. </p>
@@ -114,7 +115,7 @@ The id in brackets is the return type and firstObject is the method name. This w
 
 <p>Booleans can be bool or BOOL and can be assigned values of YES, NO, true, false. YES and NO and BOOL are effectively just macros that mean yes == true and no == false and BOOL == bool, so using any combinations of these makes no difference whatsoever. </p>
 
-<div class="highlight highlight-objective-c"><pre><span class="kt">BOOL</span> <span class="n">b</span><span class="p">;</span> 
+<div class="highlight highlight-objc"><pre><span class="kt">BOOL</span> <span class="n">b</span><span class="p">;</span> 
 <span class="kt">bool</span> <span class="n">b</span><span class="p">;</span>
 <span class="n">b</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
 <span class="n">b</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
@@ -124,19 +125,19 @@ The id in brackets is the return type and firstObject is the method name. This w
 
 <p>Ints are the same as every other language essentially. If you dont know how ints work by now, then it is amazing that you have made it to 3rd year.</p>
 
-<div class="highlight highlight-objective-c"><pre><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+<div class="highlight highlight-objc"><pre><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
 </pre></div>
 
 <p>Doubles/floats - as above</p>
 
-<div class="highlight highlight-objective-c"><pre><span class="kt">double</span> <span class="n">d</span> <span class="o">=</span> <span class="mf">3.1</span><span class="p">;</span>
+<div class="highlight highlight-objc"><pre><span class="kt">double</span> <span class="n">d</span> <span class="o">=</span> <span class="mf">3.1</span><span class="p">;</span>
 <span class="kt">float</span> <span class="n">f</span> <span class="o">=</span> <span class="mf">4.0</span><span class="p">;</span>
 <span class="p">[</span><span class="n">someObject</span> <span class="n">someMethodThatTakesAFloatAsAnArgument</span><span class="o">:</span><span class="mf">1.0f</span><span class="p">];</span> <span class="c1">//The f suffix is commonly used to make sure a number is a float</span>
 </pre></div>
 
 <p>Chars and unichars</p>
 
-<div class="highlight highlight-objective-c"><pre><span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="sc">'v'</span><span class="p">;</span>
+<div class="highlight highlight-objc"><pre><span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="sc">'v'</span><span class="p">;</span>
 <span class="kt">unichar</span> <span class="n">c</span> <span class="o">=</span> <span class="sc">'k'</span><span class="p">;</span>
 </pre></div>
 
@@ -151,7 +152,7 @@ In java this is done as follows:</p>
 
 <p>This is done in an entirely different way in objective-c and can take some getting used to. When an object is declared you must put a '*' symbol (pointer) to give the variable a pointer value. Generally to initialise an object you must allocate memory (dont worry) and call an initialisation method:</p>
 
-<div class="highlight highlight-objective-c"><pre><span class="n">MyObject</span> <span class="o">*</span><span class="n">obj</span><span class="p">;</span> <span class="c1">//declare object</span>
+<div class="highlight highlight-objc"><pre><span class="n">MyObject</span> <span class="o">*</span><span class="n">obj</span><span class="p">;</span> <span class="c1">//declare object</span>
 <span class="n">obj</span> <span class="o">=</span> <span class="p">[[</span><span class="n">MyObject</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span> <span class="c1">//initialise object</span>
 <span class="n">MyObject</span> <span class="o">*</span><span class="n">obj</span> <span class="o">=</span> <span class="p">[[</span><span class="n">MyObject</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span> <span class="c1">//declare and initialise object at once</span>
 </pre></div>
@@ -159,8 +160,7 @@ In java this is done as follows:</p>
 <p>The alloc and init methods are common across every subclass of NSObject (much like java's Object) so you are not required to write and manage memory yourself.
 A common thing to do is to write some custom init methods which provide different initialisations. </p>
 
-<div class="highlight highlight-objective-c"><pre>
-<span class="k">-</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nf">init</span><span class="p">{</span>
+<div class="highlight highlight-objc"><pre><span class="k">-</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nf">init</span><span class="p">{</span>
     <span class="k">if</span><span class="p">(</span><span class="n">self</span> <span class="o">=</span> <span class="p">[</span><span class="n">super</span> <span class="n">init</span><span class="p">]){</span>
         <span class="c1">//custom init code</span>
     <span class="p">}</span>
@@ -190,7 +190,7 @@ A common thing to do is to write some custom init methods which provide differen
 
 <p>If an object has a method with a + instead of - then you can call the method without needing to do the alloc and init</p>
 
-<div class="highlight highlight-objective-c"><pre><span class="c1">//return a String instance</span>
+<div class="highlight highlight-objc"><pre><span class="c1">//return a String instance</span>
 <span class="k">+</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nf">initAString</span><span class="p">{</span>
     <span class="k">return</span> <span class="s">@"A string"</span><span class="p">;</span>
 <span class="p">}</span>
@@ -205,7 +205,7 @@ A common thing to do is to write some custom init methods which provide differen
 
 <p>One of the most common instance variables you will use will be NSString, the string type for Objective-c. NSString have a lot of class methods to choose from. And can be initialised in many ways.</p>
 
-<div class="highlight highlight-objective-c"><pre><span class="n">NSString</span> <span class="o">*</span><span class="n">s</span><span class="p">;</span>
+<div class="highlight highlight-objc"><pre><span class="n">NSString</span> <span class="o">*</span><span class="n">s</span><span class="p">;</span>
 <span class="n">s</span> <span class="o">=</span> <span class="s">@"A string"</span><span class="p">;</span>
 <span class="n">s</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSString</span> <span class="n">stringWithFormat</span><span class="o">:</span><span class="s">@"Insert an int %i and a float %f and another string %@"</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1.0f</span><span class="p">,</span> <span class="s">@"Another String"</span><span class="p">];</span>
 <span class="n">s</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSString</span> <span class="n">stringWithString</span><span class="o">:</span><span class="s">@"Another string"</span><span class="p">];</span>
@@ -225,7 +225,7 @@ If you call a method on nil(say you forgot to initialise a variable), you do not
 
 <p>Macros are very handy things, they are mostly used to make things easier on the programmer. </p>
 
-<div class="highlight highlight-objective-c"><pre><span class="c1">//these helpful macros make colour creation a breeze</span>
+<div class="highlight highlight-objc"><pre><span class="c1">//these helpful macros make colour creation a breeze</span>
 <span class="cp">#define RGBA(r,g,b,a)               [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]</span>
 <span class="cp">#define RGB(r,g,b)                  RGBA(r, g, b, 1.0f)</span>
 <span class="c1">//Check what the device is</span>
@@ -249,7 +249,7 @@ If you call a method on nil(say you forgot to initialise a variable), you do not
 
 <p>To make constants for a file:</p>
 
-<div class="highlight highlight-objective-c"><pre><span class="n">NSString</span> <span class="o">*</span><span class="k">const</span> <span class="n">DefaultFont</span> <span class="o">=</span> <span class="s">@"Avenir-Book"</span><span class="p">;</span>
+<div class="highlight highlight-objc"><pre><span class="n">NSString</span> <span class="o">*</span><span class="k">const</span> <span class="n">DefaultFont</span> <span class="o">=</span> <span class="s">@"Avenir-Book"</span><span class="p">;</span>
 </pre></div>
 
 <p><a href="http://stackoverflow.com/questions/538996/constants-in-objective-c">Stack Overflow on global constants</a></p>
@@ -264,7 +264,7 @@ If you call a method on nil(say you forgot to initialise a variable), you do not
 
 <p>To make a class that represents a person we could make the following interface which exposes any public properties and methods needed.</p>
 
-<div class="highlight highlight-objective-c"><pre><span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
+<div class="highlight highlight-objc"><pre><span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
 <span class="k">@class</span> <span class="nc">Country</span>; <span class="c1">// means your h file can reference another class, but doesn't import it (good practice)</span>
 
 <span class="k">@interface</span> <span class="nc">Person</span> : <span class="nc">NSObject</span> <span class="c1">// the class must inherit from something, NSObject in this case</span>
@@ -286,7 +286,7 @@ If you call a method on nil(say you forgot to initialise a variable), you do not
 
 <p>Then use the following implementation to implement each of the public methods and any private ones that are needed</p>
 
-<div class="highlight highlight-objective-c"><pre><span class="cp">#import "Person.h" </span><span class="c1">// the interface we're conforming to</span>
+<div class="highlight highlight-objc"><pre><span class="cp">#import "Person.h" </span><span class="c1">// the interface we're conforming to</span>
 
 <span class="k">@implementation</span> <span class="nc">Person</span>
 
@@ -343,24 +343,24 @@ If you call a method on nil(say you forgot to initialise a variable), you do not
 <p>Most objective-c objects are mutable by default, but there are some which have differently named mutable/immutable classes. Immutable objects are essentially read-only once they are initialised, while Mutable objects are editable after they are initialised. 
     For example, suppose you initialise an array as in the above example:</p>
 
-<div class="highlight highlight-objective-c"><pre><span class="n">NSArray</span> <span class="o">*</span><span class="n">greetings</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSArray</span> <span class="n">arrayWithObjects</span><span class="o">:</span><span class="s">@"Hello"</span><span class="p">,</span> <span class="s">@"Bonjour"</span><span class="p">,</span> <span class="s">@"Guten tag"</span><span class="p">];</span>
+<div class="highlight highlight-objc"><pre><span class="n">NSArray</span> <span class="o">*</span><span class="n">greetings</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSArray</span> <span class="n">arrayWithObjects</span><span class="o">:</span><span class="s">@"Hello"</span><span class="p">,</span> <span class="s">@"Bonjour"</span><span class="p">,</span> <span class="s">@"Guten tag"</span><span class="p">];</span>
 </pre></div>
 
 <p>Then wanted to add an object or modify the index, you would need to create an entirely new NSArray to make the changes. However, by using an NSMutableArray it is as simple as:</p>
 
-<div class="highlight highlight-objective-c"><pre><span class="n">NSMutableArray</span> <span class="o">*</span><span class="n">greetings</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSMutableArray</span> <span class="n">arrayWithObjects</span><span class="o">:</span><span class="s">@"Hello"</span><span class="p">,</span> <span class="s">@"Bonjour"</span><span class="p">,</span> <span class="s">@"Guten tag"</span><span class="p">];</span>
+<div class="highlight highlight-objc"><pre><span class="n">NSMutableArray</span> <span class="o">*</span><span class="n">greetings</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSMutableArray</span> <span class="n">arrayWithObjects</span><span class="o">:</span><span class="s">@"Hello"</span><span class="p">,</span> <span class="s">@"Bonjour"</span><span class="p">,</span> <span class="s">@"Guten tag"</span><span class="p">];</span>
 <span class="p">[</span><span class="n">greetings</span> <span class="n">addObject</span><span class="o">:</span><span class="s">@"Konnichiwa"</span><span class="p">];</span> <span class="c1">//append object to array</span>
 <span class="p">[</span><span class="n">greetings</span> <span class="n">insertObject</span><span class="o">:</span><span class="s">@"Nihao"</span> <span class="n">atIndex</span><span class="o">:</span><span class="mi">2</span><span class="p">];</span> <span class="c1">//insert object at index 2</span>
 </pre></div>
 
 <p>If you wish to make an Immutable object from a Mutable object you can do this fairly easily</p>
 
-<div class="highlight highlight-objective-c"><pre><span class="n">NSArray</span> <span class="o">*</span><span class="n">immutableGreetings</span> <span class="o">=</span> <span class="n">greetings</span><span class="p">;</span> <span class="c1">//make an immutable version of greetings array</span>
+<div class="highlight highlight-objc"><pre><span class="n">NSArray</span> <span class="o">*</span><span class="n">immutableGreetings</span> <span class="o">=</span> <span class="n">greetings</span><span class="p">;</span> <span class="c1">//make an immutable version of greetings array</span>
 </pre></div>
 
 <p>A list of the objects which have differently named mutable/immutable counterparts:</p>
 
-<div class="highlight highlight-objective-c"><pre><span class="k">-</span><span class="nf">NSMutableArray</span>
+<div class="highlight highlight-objc"><pre><span class="k">-</span><span class="nf">NSMutableArray</span>
 <span class="k">-</span><span class="nf">NSMutableDictionary</span>
 <span class="k">-</span><span class="nf">NSMutableSet</span>
 <span class="k">-</span><span class="nf">NSMutableIndexSet</span>
@@ -391,27 +391,28 @@ If you call a method on nil(say you forgot to initialise a variable), you do not
 <li>Click create a new Xcode project, we'll start with the Command Line Tool option, under OS X as a template</li>
 <li>Set a project name (HelloWorld) and fill in the company identifier (Practice), set the type drop down to Foundation</li>
 <li>Save to a sensible place</li>
-<li>Embarrassingly, the template already says hello world. Switch to main.m to find it</li>
-</ol><div class="highlight highlight-objective-c"><pre><span class="cp">    #import &lt;Foundation/Foundation.h&gt;</span>
+<li>
+<p>Embarrassingly, the template already says hello world. Switch to main.m to find it</p>
 
-    <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
-    <span class="p">{</span>
+<div class="highlight highlight-objc"><pre><span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
 
-        <span class="p">@</span><span class="n">autoreleasepool</span> <span class="p">{</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
 
-            <span class="c1">// insert code here...</span>
-            <span class="n">NSLog</span><span class="p">(</span><span class="s">@"Hello, World!"</span><span class="p">);</span>
+    <span class="p">@</span><span class="n">autoreleasepool</span> <span class="p">{</span>
 
-        <span class="p">}</span>
-        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="c1">// insert code here...</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@"Hello, World!"</span><span class="p">);</span>
+
     <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 
-<pre><code>The dot m extension is where you place all the executable code, while public header files use a dot h extension, more on that later!
-*Important note:* When programming with cocoa you will not touch the main method. Instead you'll be customising objects that the frame work will instantiate and call certain methods on. This will look quite different but other tutorials will cover this.
-</code></pre>
+<p>The dot m extension is where you place all the executable code, while public header files use a dot h extension, more on that later!</p>
 
-<ol>
+<p><em>Important note:</em> When programming with cocoa you will not touch the main method. Instead you'll be customising objects that the frame work will instantiate and call certain methods on. This will look quite different but other tutorials will cover this.</p>
+</li>
 <li>Click the play arrow in the top left to build and run the solution, or press command + r
 When the solution runs, the output pane will pop up from the bottom of the xcode window. It will say the date and some other stuff on the same line as "Hello, World!", then an exit code of 0 - which we know means success from c.</li>
 </ol><h3>
@@ -423,7 +424,7 @@ When the solution runs, the output pane will pop up from the bottom of the xcode
 <li>The @ infront of a string makes it an NSString, the foundation framework version of a string. <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSString_Class/Reference/NSString.html">It's class reference can be found here</a>
 </li>
 <li>NSLog is what printed out the date (also a line break) but you could use printf, as objective-c extends c. Printf does not work with NSStrings, so you would need to remove the at sign, and append a new line character. </li>
-</ul><div class="highlight highlight-objective-c"><pre>  <span class="n">printf</span><span class="p">(</span><span class="s">"Hello, World</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+</ul><div class="highlight highlight-objc"><pre>  <span class="n">printf</span><span class="p">(</span><span class="s">"Hello, World</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 </pre></div>
 
 <h2>
@@ -434,26 +435,26 @@ When the solution runs, the output pane will pop up from the bottom of the xcode
 2. The collection we will use is called an <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSArray_Class/NSArray.html">NSArray</a> and there are at least 3 ways to initialise one. 
 1. The general way    </p>
 
-<div class="highlight highlight-objective-c"><pre>        <span class="n">NSArray</span> <span class="o">*</span><span class="n">greetings</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSArray</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">initWithObjects</span><span class="o">:</span><span class="s">@"Hello"</span><span class="p">,</span> <span class="s">@"Bonjour"</span><span class="p">,</span> <span class="s">@"Guten tag"</span><span class="p">];</span>
+<div class="highlight highlight-objc"><pre>        <span class="n">NSArray</span> <span class="o">*</span><span class="n">greetings</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSArray</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">initWithObjects</span><span class="o">:</span><span class="s">@"Hello"</span><span class="p">,</span> <span class="s">@"Bonjour"</span><span class="p">,</span> <span class="s">@"Guten tag"</span><span class="p">];</span>
 </pre></div>
 
 <ol>
 <li>A convenience constructor, lots of objects have these<br>
 </li>
-</ol><div class="highlight highlight-objective-c"><pre>        <span class="n">NSArray</span> <span class="o">*</span><span class="n">greetings</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSArray</span> <span class="n">arrayWithObjects</span><span class="o">:</span><span class="s">@"Hello"</span><span class="p">,</span> <span class="s">@"Bonjour"</span><span class="p">,</span> <span class="s">@"Guten tag"</span><span class="p">];</span>
+</ol><div class="highlight highlight-objc"><pre>        <span class="n">NSArray</span> <span class="o">*</span><span class="n">greetings</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSArray</span> <span class="n">arrayWithObjects</span><span class="o">:</span><span class="s">@"Hello"</span><span class="p">,</span> <span class="s">@"Bonjour"</span><span class="p">,</span> <span class="s">@"Guten tag"</span><span class="p">];</span>
 </pre></div>
 
 <ol>
 <li>The literal way<br>
 </li>
-</ol><div class="highlight highlight-objective-c"><pre>        <span class="n">NSArray</span> <span class="o">*</span><span class="n">greetings</span> <span class="o">=</span> <span class="p">@[</span><span class="s">@"Hello"</span><span class="p">,</span> <span class="s">@"Bonjour"</span><span class="p">,</span> <span class="s">@"Guten tag"</span><span class="p">];</span>
+</ol><div class="highlight highlight-objc"><pre>        <span class="n">NSArray</span> <span class="o">*</span><span class="n">greetings</span> <span class="o">=</span> <span class="p">@[</span><span class="s">@"Hello"</span><span class="p">,</span> <span class="s">@"Bonjour"</span><span class="p">,</span> <span class="s">@"Guten tag"</span><span class="p">];</span>
 </pre></div>
 
 <p>Here the square brackets represent the array literal (like quotation marks represent string literals) and not method calls.
 4. To iterate over our list and print each greeting you can use a foreach or a for loop (or a while loop if you're a maniac) as well as a few fancy enumerators.
     1. A handy old foreach loop, great when you don't care about index</p>
 
-<div class="highlight highlight-objective-c"><pre>        <span class="k">for</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">greeting</span> <span class="k">in</span> <span class="n">greetings</span><span class="p">)</span>
+<div class="highlight highlight-objc"><pre>        <span class="k">for</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">greeting</span> <span class="k">in</span> <span class="n">greetings</span><span class="p">)</span>
         <span class="p">{</span>
             <span class="n">NSLog</span><span class="p">(</span><span class="s">@"%@"</span><span class="p">,</span> <span class="n">greeting</span><span class="p">);</span>
         <span class="p">}</span>
@@ -461,7 +462,7 @@ When the solution runs, the output pane will pop up from the bottom of the xcode
 
 <p>or if you don't know or care about type you could use the generic type id</p>
 
-<div class="highlight highlight-objective-c"><pre>        <span class="k">for</span> <span class="p">(</span><span class="kt">id</span> <span class="n">greeting</span> <span class="k">in</span> <span class="n">greetings</span><span class="p">)</span>
+<div class="highlight highlight-objc"><pre>        <span class="k">for</span> <span class="p">(</span><span class="kt">id</span> <span class="n">greeting</span> <span class="k">in</span> <span class="n">greetings</span><span class="p">)</span>
         <span class="p">{</span>
             <span class="n">NSLog</span><span class="p">(</span><span class="s">@"%@"</span><span class="p">,</span> <span class="n">greeting</span><span class="p">);</span>
         <span class="p">}</span>
@@ -469,7 +470,7 @@ When the solution runs, the output pane will pop up from the bottom of the xcode
 
 <ol>
 <li>A  familiar for loop. When written in full with each method that is being used being called explicitly:</li>
-</ol><div class="highlight highlight-objective-c"><pre>        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">[</span><span class="n">greetings</span> <span class="n">count</span><span class="p">];</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
+</ol><div class="highlight highlight-objc"><pre>        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">[</span><span class="n">greetings</span> <span class="n">count</span><span class="p">];</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
         <span class="p">{</span>
             <span class="n">NSLog</span><span class="p">(</span><span class="s">@"%@"</span><span class="p">,</span> <span class="p">[</span><span class="n">greetings</span> <span class="n">objectAtIndex</span><span class="o">:</span><span class="n">i</span><span class="p">]);</span>
         <span class="p">}</span>
@@ -477,7 +478,7 @@ When the solution runs, the output pane will pop up from the bottom of the xcode
 
 <p>In short hand:</p>
 
-<div class="highlight highlight-objective-c"><pre>        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">greetings</span><span class="p">.</span><span class="n">count</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
+<div class="highlight highlight-objc"><pre>        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">greetings</span><span class="p">.</span><span class="n">count</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
         <span class="p">{</span>
             <span class="n">NSLog</span><span class="p">(</span><span class="s">@"%@"</span><span class="p">,</span> <span class="n">greetings</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
         <span class="p">}</span>
@@ -511,11 +512,17 @@ When the solution runs, the output pane will pop up from the bottom of the xcode
 <li>Start learning pretty pro techniques: <a href="http://www.raywenderlich.com/55384/ios-7-best-practices-part-1">Awesome weather app</a> - This app uses Cocoapods (community built modular code), <a href="http://nshipster.com/reactivecocoa/">ReactiveCocoa</a> (allows classes to watch for changes in other classes with minimal coupling, see also: <a href="http://nshipster.com/key-value-observing/">KVO</a>) and calls a web api. Fancy!</li>
 </ol>
       </section>
-      <footer>
-        <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Objective-c maintained by <a href="https://github.com/mattwelson">mattwelson</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-		
+
+    
+
   </body>
 </html>
