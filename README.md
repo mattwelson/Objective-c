@@ -306,7 +306,8 @@ Every now and again you'll run into a struct. This is exactly the same as it is 
         return 0;
     }
     ```
-    The dot m extension is where you place all the executable code, while public header files use a dot h extension, more on that later! (Sorry I can't fix this code formatting)
+    The dot m extension is where you place all the executable code, while public header files use a dot h extension, more on that later!
+    
     *Important note:* When programming with cocoa you will not touch the main method. Instead you'll be customising objects that the frame work will instantiate and call certain methods on. This will look quite different but other tutorials will cover this.
 6. Click the play arrow in the top left to build and run the solution, or press command + r
 When the solution runs, the output pane will pop up from the bottom of the xcode window. It will say the date and some other stuff on the same line as "Hello, World!", then an exit code of 0 - which we know means success from c.
